@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import { toast } from "react-toastify";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import userPhoto from "../assets/user.png"
 
 
 const Navbar = () => {
@@ -72,18 +73,18 @@ const Navbar = () => {
                     user ?
                         <div className="dropdown dropdown-end ">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full tooltip" title={user?.displayName}>
-                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+                                <div className="w-12 rounded-full tooltip" title={user?.displayName}>
+                                    <img alt="user" src={user?.photoURL || userPhoto} />
                                 </div>
                             </div>
-                            <ul tabIndex={0} className=" z-[1] shadow menu menu-lg  dropdown-content bg-base-100 rounded-lg ">
+                            <ul tabIndex={0} className=" z-[1] w-48 shadow menu menu-lg  dropdown-content bg-base-100 rounded-lg ">
                                 <li><a>{user.displayName}</a></li>
                                 <li className="bg-[#F95A65] hover:bg-[#f24652] text-white rounded-lg" onClick={handleSignOut}><a><CiLogout /> Logout</a></li>
                             </ul>
                         </div> :
                         <div className="space-x-3">
                             <Link to='/login'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Login</button></Link>
-                            <Link to='/register'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Register</button></Link>
+                            <Link to='/registration'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Register</button></Link>
                         </div>
                 }
 
