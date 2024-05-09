@@ -2,20 +2,22 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 // import { toast } from 'react-toastify';
 import { CiLogout } from "react-icons/ci";
+import { toast } from "react-toastify";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
     const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+    const {user, logoutUser} = useContext(AuthContext);
 
-
-    // const handleSignOut = () => {
-    //     logOut()
-    //         .then(result => {
-    //             console.log(result)
-    //             toast.success("Logged out successfully!")
-    //         })
-    //         .catch(err => console.error(err));
-    // }
+    const handleSignOut = () => {
+        logoutUser()
+            .then(result => {
+                console.log(result)
+                toast.success("Logged out successfully!")
+            })
+            .catch(err => console.error(err));
+    }
 
 
     const handleTheme = (e) => {
@@ -45,7 +47,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to='/' className="text-2xl font-bold font-serif"><span className="text-[#F95A65]">NR</span> Tourism</Link>
+                <Link to='/' className="text-2xl font-bold font-serif"><span className="text-[#F95A65]">Web</span> Wonders</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -66,7 +68,7 @@ const Navbar = () => {
 
                     </label>
                 </div>
-                {/* {
+                {
                     user ?
                         <div className="dropdown dropdown-end ">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -83,7 +85,7 @@ const Navbar = () => {
                             <Link to='/login'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Login</button></Link>
                             <Link to='/register'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Register</button></Link>
                         </div>
-                } */}
+                }
 
             </div>
         </div>

@@ -6,7 +6,7 @@ import auth from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 
 const Registration = () => {
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -15,24 +15,46 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        // console.log(name, email, password, photo);
+
+
+        // Password verification
+        if (password.length < 6) {
+            return toast.error('Password use must be 6 character')
+        }
+
+        if (/^(?=.*[A-Z])/gm.test(password) === false) {
+            return toast.error("Uppercase letter is required")
+        }
+
+        if (/^(?=.*[a-z])(?=.*[!@#$%^&*()\-_=+{};:'",.<>?\\|[\]`~])/gm.test(password) === false) {
+            return toast.error("Special character are required");
+        }
+
+        if (/[0-9]/gm.test(password) === false) {
+            return toast.error("numeric character are required");
+        }
+        
+        
+
         createUser(email, password)
-        .then(result => {
-            console.log(result.user);
-            updateProfile(auth.currentUser, {
-                displayName: name,
-                photoURL: photo
+            .then(result => {
+                console.log(result.user);
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then(res => {
+                        console.log(res);
+                        toast.success("Account create successfully")
+                    })
+                    .catch(err => console.log(err))
             })
-            .then(res => {
-                console.log(res);
-                toast.success("Account create successfully")
+            .catch(err => {
+                console.log(err);
+                toast.error(("Please enter a valid email "))
             })
-            .catch(err => console.log(err))
-        })
-        .catch(err => {
-            console.log(err);
-            toast.error(("Please enter a valid info"))
-        })
+            event.target.reset()
     }
 
     return (

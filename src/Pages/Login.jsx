@@ -1,6 +1,31 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { AuthContext } from "../AuthProvider/AuthProvider"
+import { toast } from "react-toastify";
 
 const Login = () => {
+    const {loginUser} = useContext(AuthContext);
+
+    const handleLogin = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(email, password);
+
+        loginUser(email, password)
+        .then(result => {
+            console.log(result.user);
+            toast.success("Login successful")
+        })
+        .catch(err => {
+            console.log(err);
+            toast.error("Invalid credentials");
+        })
+        event.target.reset();
+    }
+
     return (
       <div className='flex justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
         <div className='flex w-full border max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
@@ -18,7 +43,7 @@ const Login = () => {
             </p>
   
             
-            <form>
+            <form onSubmit={handleLogin}>
               <div className='mt-4'>
                 <label
                   className='block mb-2 text-sm font-medium text-gray-600 '
