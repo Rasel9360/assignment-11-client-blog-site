@@ -1,6 +1,40 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom"
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import auth from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const Registration = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name, email, password, photo);
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user);
+            updateProfile(auth.currentUser, {
+                displayName: name,
+                photoURL: photo
+            })
+            .then(res => {
+                console.log(res);
+                toast.success("Account create successfully")
+            })
+            .catch(err => console.log(err))
+        })
+        .catch(err => {
+            console.log(err);
+            toast.error(("Please enter a valid info"))
+        })
+    }
+
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
             <div className='flex w-full border max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
@@ -9,7 +43,7 @@ const Registration = () => {
                     <p className='mt-3 text-2xl font-bold text-center text-gray-600 '>
                         Get Your Free Account Now.
                     </p>
-                    <form>
+                    <form onSubmit={handleRegister}>
                         <div className='mt-4'>
                             <label
                                 className='block mb-2 text-sm font-medium text-gray-600 '
