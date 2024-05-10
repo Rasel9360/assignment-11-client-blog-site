@@ -6,7 +6,7 @@ import auth from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 
 const Registration = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, logoutUser } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -34,8 +34,8 @@ const Registration = () => {
         if (/[0-9]/gm.test(password) === false) {
             return toast.error("numeric character are required");
         }
-        
-        
+
+
 
         createUser(email, password)
             .then(result => {
@@ -47,6 +47,9 @@ const Registration = () => {
                     .then(res => {
                         console.log(res);
                         toast.success("Account create successfully")
+                        logoutUser()
+                            .then(result => console.log(result))
+                            .catch(err => console.log(err))
                     })
                     .catch(err => console.log(err))
             })
@@ -54,7 +57,7 @@ const Registration = () => {
                 console.log(err);
                 toast.error(("Please enter a valid email "))
             })
-            event.target.reset()
+        event.target.reset()
     }
 
     return (
