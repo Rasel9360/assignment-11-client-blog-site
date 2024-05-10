@@ -83,8 +83,18 @@ const Navbar = () => {
                             </ul>
                         </div> :
                         <div className="space-x-3">
-                            <Link to='/login'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Login</button></Link>
-                            <Link to='/registration'><button className="btn text-white text-xl bg-[#F95A65] hover:bg-[#f24652]">Register</button></Link>
+                            <Link to='/login'><button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                            <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+                            <span className="relative px-3 py-2 transition-all ease-out  rounded-md group-hover:bg-opacity-0 duration-400">
+                                <span className="relative text-white">Login</span>
+                            </span>
+                        </button></Link>
+                            <Link to='/registration'><button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                            <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+                            <span className="relative px-3 py-2 transition-all ease-out  rounded-md group-hover:bg-opacity-0 duration-400">
+                                <span className="relative text-white">Register</span>
+                            </span>
+                        </button></Link>
                         </div>
                 }
 
