@@ -8,6 +8,7 @@ import Registration from "../Pages/Registration";
 import AddBlog from "../Pages/AddBlog";
 import AllBlogs from "../Pages/AllBlogs";
 import ErrorPage from "../Pages/ErrorPage";
+import BlogDetails from "../Pages/BlogDetails";
 
 const Route = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const Route = createBrowserRouter([
         {
           path: '/allBlogs',
           element: <AllBlogs></AllBlogs>,
+        },
+        {
+          path: '/blog/:id',
+          element: <BlogDetails></BlogDetails>,
+          loader: ({params}) => fetch(`${import.meta.env.VITE_API_URL}/blogs/${params.id}`)
         }
     ])
   },

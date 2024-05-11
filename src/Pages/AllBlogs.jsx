@@ -36,11 +36,11 @@ const AllBlogs = () => {
                             All Blogs
                         </h1>
                     </div>
-                    <div className="flex justify-around w-full">
+                    <div className="flex flex-col md:flex-row justify-around w-10/12 mt-2 md:w-full">
                         {/* short by category */}
-                        <div className="border p-1 rounded-xl">
+                        <div className="border p-1 rounded-xl mb-3 md:mb-0">
                             <select
-                                className="select select-bordered w-full  max-w-xs text-lg font-serif bg-opacity-80"
+                                className="select select-bordered w-full text-lg font-serif bg-opacity-80"
                                 onChange={(e) => setFilter(e.target.value)}
                                 value={filter}
                             >
