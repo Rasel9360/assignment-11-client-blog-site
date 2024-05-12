@@ -16,7 +16,7 @@ const Blog = ({ blog }) => {
                         <p>Date : <span className="text-xs ">{new Date(date).toLocaleDateString()}</span></p>
                         <p>Category : {category}</p>
                     </div>
-                    <p>{short_description}</p>
+                    <p title={short_description}>{short_description.slice(0,150)}........</p>
                     <div className="flex gap-5">
                         <Link to={`/blog/${_id}`}>
                             <button className="relative p-0.5 btn-sm inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">

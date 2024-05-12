@@ -20,7 +20,9 @@ const AddBlog = () => {
         const short_description = form.short_description.value;
         const long_description = form.long_description.value;
         const email = user.email
-        const newBlog = { title, category, image, date, short_description, long_description, email };
+        const blogOwner = user.displayName;
+        const userPhoto = user.photoURL;
+        const newBlog = { title, category, image, date, short_description, long_description, email, blogOwner, userPhoto };
         console.log(newBlog);
 
         axios.post(`${import.meta.env.VITE_API_URL}/blogs`, newBlog)
