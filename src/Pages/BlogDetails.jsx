@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Comment from "../Components/Comment";
@@ -38,7 +38,7 @@ const BlogDetails = () => {
                 // console.log(res.data);
                 setComment(res.data)
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err);
             })
     }, [_id, comment])
@@ -67,6 +67,18 @@ const BlogDetails = () => {
                 <div>
                     <p className="text-lg text-justify">{long_description}</p>
                 </div>
+            </div>
+            <div>
+                {isAuthor && (
+                     <Link to={`/update-blog/${_id}`}>
+                     <button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                         <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+                         <span className="relative px-6 py-3 transition-all ease-out  rounded-md group-hover:bg-opacity-0 duration-400">
+                             <span className="relative text-white">Update Blog</span>
+                         </span>
+                     </button>
+                 </Link>
+                )}
             </div>
             {/* comments section  */}
             <div>
