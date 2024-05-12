@@ -8,7 +8,7 @@ const Footer = () => {
             </nav>
             <div className='md:flex justify-center md:gap-28'>
                 <nav className='text-start mt-8 md:mt-0'>
-                    <h3 className='text-xl font-serif mb-2'>Find us on social media</h3>
+                    <h3 className='text-xl font-serif mb-2 text-center'>Find us on social media</h3>
                     <div className="flex gap-5 justify-center items-center mt-3 text-2xl">
                         <a href='#'><FaFacebook /></a>
                         <a href='#'><FaTwitter /></a>
@@ -16,7 +16,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </div>
-            <hr className='w-1/2 mx-auto'/>
+            <hr className='md:w-1/2 mx-auto'/>
             <aside>
                 <p>Copyright © 2024 - All right reserved by Web Wonders</p>
             </aside>

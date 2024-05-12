@@ -16,10 +16,11 @@ const Blogs = () => {
 
     return (
         <div >
-            <h1 className="text-3xl text-center font-bold font-serif my-20">Recent Blogs </h1>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 md:w-10/12 mx-auto">
+            <h1 className="text-3xl text-center font-bold font-serif mt-16">Recent Blogs </h1>
+            <p className="md:w-1/2 text-center font-sans text-[18px] mt-3 mx-auto">The recent blogs section is a section on a website that displays a list of the most recently published blog posts. Each post may have a short description that appears below the title and provides a brief overview of the content of the post. </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mt-16 md:w-10/12 mx-auto">
                 {
-                    blogs.slice(0,6).map(blog => <Blog key={blog._id} blog={blog}></Blog>)
+                    blogs.slice(0, 6).map(blog => <Blog key={blog._id} blog={blog}></Blog>)
                 }
             </div>
         </div>
