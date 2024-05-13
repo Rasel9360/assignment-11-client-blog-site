@@ -28,7 +28,7 @@ const UpdateBlog = () => {
         const updateBlog = { title, category, image, date, short_description, long_description};
         // console.log(newBlog);
 
-        axios.put(`${import.meta.env.VITE_API_URL}/updateBlog/${_id}`, updateBlog)
+        axios.put(`${import.meta.env.VITE_API_URL}/updateBlog/${_id}`, updateBlog, {withCredentials: true})
         .then(res => {
             console.log(res.data);
             if(res.data.modifiedCount > 0){
