@@ -43,7 +43,12 @@ const AuthProvider = ({ children }) => {
                     .then(res => console.log(res.data))
                     .catch(err => console.log(err))
             }
-
+            else {
+                axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggerUser,
+                    { withCredentials: true })
+                    .then(res => console.log(res.data))
+                    .catch(err => console.log(err))
+            }
         })
         // Clean up subscription when the component unmounts
         return () => unsubscribe();
