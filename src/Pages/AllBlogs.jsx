@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Blog from "../Components/Blog";
+import SkeletonCard from "../skeleton/SkeletonCard";
 
 const AllBlogs = () => {
     const [blogs, setBlogs] = useState([]);
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
     // console.log(blogs);
 
 
@@ -13,7 +15,9 @@ const AllBlogs = () => {
         axios.get(`${import.meta.env.VITE_API_URL}/all-blogs?filter=${filter}&search=${search}`)
             .then(response => {
                 setBlogs(response.data)
+                setIsLoading(false)
             })
+            .catch((err)=>console.log(err))
     }, [blogs, filter, search])
 
     const handleSearch = (e) => {
@@ -81,6 +85,7 @@ const AllBlogs = () => {
             {/* blogs container */}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 my-12 gap-10 w-11/12 md:w-10/12 mx-auto">
+                {isLoading && <SkeletonCard card={6}></SkeletonCard>}
                 {
                     blogs.map(blog => <Blog key={blog._id} blog={blog}></Blog>)
                 }

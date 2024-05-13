@@ -1,10 +1,12 @@
 import { useReactTable, getCoreRowModel, flexRender } from "@tanstack/react-table";
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
+import FeaturedLoading from "../skeleton/FeaturedLoading";
 
 const FeaturedBlogs = () => {
     const [blog, setBlogs] = useState([]);
     // console.log(blog.long_description.length);
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
@@ -14,7 +16,8 @@ const FeaturedBlogs = () => {
                 const sortByDescription = response.data.sort((a, b) => {
                     return b.long_description.split(" ").length - a.long_description.split(" ").length;
                 })
-                setBlogs(sortByDescription.slice(0,10));
+                setBlogs(sortByDescription.slice(0, 10));
+                setIsLoading(false)
             })
             .catch(err => console.log(err))
     }, [])
@@ -63,6 +66,7 @@ const FeaturedBlogs = () => {
                         </tr>))}
                     </thead>
                     <tbody className="text-lg">
+                        {isLoading && <FeaturedLoading></FeaturedLoading>}
                         {table.getRowModel().rows.map((row, i) => (
                             <tr key={i}>
                                 {row.getVisibleCells().map((cell, i) => (
