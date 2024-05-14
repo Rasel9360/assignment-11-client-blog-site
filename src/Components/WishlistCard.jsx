@@ -1,26 +1,13 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
-import axios from "axios";
-import { toast } from "react-toastify";
 
-const Blog = ({ blog }) => {
-    const {user} = useContext(AuthContext);
-    const { _id, image, title, short_description, date, category, long_description } = blog;
+const WishlistCard = ({ wish }) => {
 
+    const { _id, image, blogId, title, short_description, date, category } = wish;
 
-    const handleWishlist = () => {
-        const newWishlist = { blogId: _id, image, title, short_description, category, long_description, email: user?.email, date };
-        // console.log(newWishlist);
-        axios.post(`${import.meta.env.VITE_API_URL}/wishlist`, newWishlist)
-        .then(res => {
-            console.log(res.data);
-            if(res.data.insertedId){
-                toast.success("Blog added wishlist")
-            }
-        })
-        .catch(err => console.log(err))
+    const handleDelete = (id) => {
+        console.log(id);
     }
+
 
     return (
         <div className="flex relative">
@@ -35,7 +22,7 @@ const Blog = ({ blog }) => {
                     <p title={short_description}>{short_description.slice(0, 150)}........</p>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 flex justify-around pb-4 ">
-                    <Link to={`/blog/${_id}`}>
+                    <Link to={`/blog/${blogId}`}>
                         <button className="relative p-0.5 btn-sm inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
                             <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
                             <span className="relative px-6 py-3 transition-all ease-out rounded-md group-hover:bg-opacity-0 duration-400">
@@ -44,11 +31,11 @@ const Blog = ({ blog }) => {
                         </button>
                     </Link>
                     <button
-                        onClick={handleWishlist}
+                        onClick={()=> handleDelete(_id)}
                         className="relative p-0.5 btn-sm inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
                         <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
                         <span className="relative px-6 py-3 transition-all ease-out rounded-md group-hover:bg-opacity-0 duration-400">
-                            <span className="relative text-white">Wishlist</span>
+                            <span className="relative text-white">Remove Wishlist</span>
                         </span>
                     </button>
                 </div>
@@ -57,4 +44,4 @@ const Blog = ({ blog }) => {
     );
 };
 
-export default Blog;
+export default WishlistCard;

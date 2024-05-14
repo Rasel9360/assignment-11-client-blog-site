@@ -36,6 +36,7 @@ const Navbar = () => {
         <li><NavLink to='/allBlogs' className={'text-[16px] font-bold'}>All Blogs</NavLink></li>
         <li><NavLink to='/addBlog' className={'text-[16px] font-bold'}>Add Blog</NavLink></li>
         <li><NavLink to='/featured' className={'text-[16px] font-bold'}>Featured Blogs</NavLink></li>
+        <li><NavLink to='/wishlist' className={'text-[16px] font-bold'}>Wishlist</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-md lg:px-16 fixed z-10">
