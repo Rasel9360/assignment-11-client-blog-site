@@ -8,7 +8,7 @@ const Wishlist = () => {
     const [wishlist, setWishlist] = useState([]);
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/wishlist/${user?.email}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/wishlist/${user?.email}`, {withCredentials: true})
             .then(res => {
                 // console.log(res.data);
                 setWishlist(res.data);
