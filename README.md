@@ -1,8 +1,29 @@
-# React + Vite
+# Web Wonders
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Web Wonders, where you can explore a world of insightful articles and engaging content!
 
-Currently, two official plugins are available:
+🌐 Live Site URL: [AwesomeBlog](https://assignment-eleven-74640.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Browse Diverse Content**: Explore a wide range of topics including technology, digital marketing, web development, career change, photography,  and more.
+- **Engaging Visuals**: Enjoy stunning images and multimedia content accompanying each article.
+- **User-Friendly Interface**: Navigate seamlessly through the website with our intuitive and responsive design.
+- **Personalized Experience**: Create an account to customize your feed and save your favorite articles to your wishlist.
+- **Stay Updated**: Subscribe to our newsletter to receive the latest blog posts and exclusive offers directly in your inbox.
+
+## Technologies Used
+
+- Frontend:React.js
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Authentication: JWT (JSON Web Tokens)
+- Additional Libraries: react-router-dom, axios, react-tostyphy, react-icon, react-Framer Motion ,tanstack-Table and more
+
+
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests for any features or bug fixes.
+
+
