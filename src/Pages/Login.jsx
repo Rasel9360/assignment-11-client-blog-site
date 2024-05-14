@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { AuthContext } from "../AuthProvider/AuthProvider"
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const {loginUser, googleLogin} = useContext(AuthContext);
@@ -44,6 +45,9 @@ const Login = () => {
 
     return (
       <div className='flex justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
+        <Helmet>
+          <title>Login Page</title>
+        </Helmet>
         <div className='flex w-full border max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg  lg:max-w-4xl '>
           <div
             className='hidden bg-cover bg-center lg:block lg:w-1/2'

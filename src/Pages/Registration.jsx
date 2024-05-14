@@ -4,6 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Registration = () => {
     const { createUser, logoutUser } = useContext(AuthContext);
@@ -62,6 +63,9 @@ const Registration = () => {
 
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
+            <Helmet>
+                <title>Register Page</title>
+            </Helmet>
             <div className='flex w-full border max-w-sm mx-auto overflow-hidden  rounded-lg shadow-lg  lg:max-w-4xl '>
                 <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
 
@@ -69,7 +73,7 @@ const Registration = () => {
                         Get Your Free Account Now.
                     </p>
                     <form
-                     onSubmit={handleRegister}>
+                        onSubmit={handleRegister}>
                         <div className='mt-4'>
                             <label
                                 className='block mb-2 text-lg font-medium  '

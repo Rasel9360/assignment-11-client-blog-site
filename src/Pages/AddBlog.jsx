@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const AddBlog = () => {
     const [startDate, setStartDate] = useState(new Date())
@@ -39,9 +40,9 @@ const AddBlog = () => {
 
     return (
         <div className="bg-[#F4F3F0] p-10 lg:px-24 w-11/12 lg:w-10/12 mx-auto shadow-xl my-6 rounded-md font-serif">
-            {/* <Helmet>
-                <title>Add Tourist Spot</title>
-            </Helmet> */}
+            <Helmet>
+                <title>Add Blog</title>
+            </Helmet>
             <h2 className="text-3xl text-center font-bold font-serif text-[#F95A65] mb-6">Add Blogs
             </h2>
             <form onSubmit={handleAddTourist}>

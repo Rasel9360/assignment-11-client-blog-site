@@ -2,6 +2,7 @@ import { useReactTable, getCoreRowModel, flexRender } from "@tanstack/react-tabl
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import FeaturedLoading from "../skeleton/FeaturedLoading";
+import { Helmet } from "react-helmet";
 
 const FeaturedBlogs = () => {
     const [blog, setBlogs] = useState([]);
@@ -50,6 +51,9 @@ const FeaturedBlogs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Featured Blogs</title>
+            </Helmet>
             <h2 className="text-4xl font-bold text-center font-serif mt-10">Featured Blogs</h2>
             <p className="w-11/12 lg:w-[60%] mx-auto text-center mt-2 font-serif">Discover the cream of the crop with our Featured Blogs section. We've curated the top 10 posts based on the richness of their content, offering you a quick glimpse into the most compelling narratives. Dive into captivating stories, each accompanied by essential details like blog title, author's name, and profile picture, providing a snapshot of the diverse voices and perspectives within our community.</p>
             <div className="md:w-[75%] mx-auto my-10">

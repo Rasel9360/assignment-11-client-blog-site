@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Comment from "../Components/Comment";
+import { Helmet } from "react-helmet";
 
 const BlogDetails = () => {
     const blog = useLoaderData();
@@ -46,6 +47,9 @@ const BlogDetails = () => {
 
     return (
         <div className="border my-6 rounded-md w-11/12 lg:w-[60%] p-4 font-serif  mx-auto space-y-12">
+            <Helmet>
+                <title>Blog Details</title>
+            </Helmet>
             <div>
                 <img className="w-full object-cover object-center md:h-[500px] rounded-lg" src={image} alt="" />
             </div>

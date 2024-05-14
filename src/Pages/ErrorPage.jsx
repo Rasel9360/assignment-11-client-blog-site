@@ -3,10 +3,14 @@ import animation from '../../public/Animation-2.json';
 import { FaArrowAltCircleLeft } from 'react-icons/fa';
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const ErrorPage = () => {
     return (
         <div className='flex flex-col items-center justify-center min-h-screen'>
+            <Helmet>
+                <title>Error Page</title>
+            </Helmet>
             <div className='w-3/12 mx-auto'>
                 <Lottie loop={true} animationData={animation}/>
             </div>

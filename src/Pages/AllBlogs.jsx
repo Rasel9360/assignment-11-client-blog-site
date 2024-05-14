@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Blog from "../Components/Blog";
 import SkeletonCard from "../skeleton/SkeletonCard";
+import { Helmet } from "react-helmet";
 
 const AllBlogs = () => {
     const [blogs, setBlogs] = useState([]);
@@ -28,6 +29,9 @@ const AllBlogs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Blogs</title>
+            </Helmet>
             <div
                 className='w-full bg-center bg-cover h-[12rem]'
                 style={{

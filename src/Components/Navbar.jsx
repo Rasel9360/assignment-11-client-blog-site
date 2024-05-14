@@ -49,7 +49,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to='/' className="text-2xl font-bold font-serif"><span className="text-[#F95A65]">Web</span> Wonders</Link>
+                <Link to='/' className="text-xl md:text-3xl font-bold font-serif"><span className="text-[#F95A65]">Web</span> Wonders</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-serif font-bold">
@@ -83,14 +83,14 @@ const Navbar = () => {
                                 <li className="bg-[#F95A65] hover:bg-[#f24652] text-white rounded-lg" onClick={handleSignOut}><a><CiLogout /> Logout</a></li>
                             </ul>
                         </div> :
-                        <div className="space-x-3">
+                        <div className="space-x-3 flex">
                             <Link to='/login'><button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
                             <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
                             <span className="relative px-3 py-2 transition-all ease-out  rounded-md group-hover:bg-opacity-0 duration-400">
                                 <span className="relative text-white">Login</span>
                             </span>
                         </button></Link>
-                            <Link to='/registration'><button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                            <Link to='/registration'><button className="relative p-0.5  items-center justify-center font-bold overflow-hidden group rounded-md hidden md:flex">
                             <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
                             <span className="relative px-3 py-2 transition-all ease-out  rounded-md group-hover:bg-opacity-0 duration-400">
                                 <span className="relative text-white">Register</span>
