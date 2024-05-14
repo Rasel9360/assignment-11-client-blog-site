@@ -21,7 +21,7 @@ const NewsLetter = () => {
                     <div className="flex items-center justify-center mx-auto pb-6 md:py-0 md:w-1/2">
                         <form onSubmit={handleSubmit}>
                             <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row bg-white dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-                                <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="email" name="email" placeholder="Enter your email" required aria-label="Enter your email" />
+                                <input className="px-6 py-2 text-gray-700  bg-white outline-none  focus:placeholder-transparent dark:focus:placeholder-transparent" type="email" name="email" placeholder="Enter your email" required aria-label="Enter your email" />
 
                                 <button className="relative p-0.5  inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
                                     <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
