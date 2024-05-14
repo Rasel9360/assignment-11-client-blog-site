@@ -10,7 +10,7 @@ const WishlistCard = ({ wish, wishlist, setWishlist }) => {
         console.log(id);
         axios.delete(`${import.meta.env.VITE_API_URL}/wishlist/${_id}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.deletedCount > 0) {
                     toast.success('successfully remove wishlist blog')
                     const remaining = wishlist.filter(wish => wish._id !== _id);

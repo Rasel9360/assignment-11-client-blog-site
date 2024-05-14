@@ -14,12 +14,14 @@ const Blog = ({ blog }) => {
         // console.log(newWishlist);
         axios.post(`${import.meta.env.VITE_API_URL}/wishlist`, newWishlist)
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.insertedId){
                 toast.success("Blog added wishlist")
             }
         })
-        .catch(err => console.log(err))
+        .catch(err =>{
+            toast.error(err.response.data)
+        })
     }
 
     return (
