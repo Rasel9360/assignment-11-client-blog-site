@@ -2,7 +2,7 @@
 
 Welcome to Web Wonders, where you can explore a world of insightful articles and engaging content!
 
-🌐 Live Site URL: [AwesomeBlog](https://assignment-eleven-74640.web.app/)
+🌐 Live Site URL: [Web Wonders](https://assignment-eleven-74640.web.app/)
 
 ## Features
 
