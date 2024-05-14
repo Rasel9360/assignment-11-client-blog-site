@@ -21,7 +21,12 @@ const Wishlist = () => {
             <h1 className="text-4xl text-center mt-8  font-serif font-bold"> Wishlist Blog</h1>
             <div className="grid grid-cols-1 my-12 md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 md:w-10/12 mx-auto">
                 {
-                    wishlist.map(wish => <WishlistCard key={wish._id} wish={wish}></WishlistCard>)
+                    wishlist.map(wish => <WishlistCard 
+                    key={wish._id} 
+                    wish={wish}
+                    wishlist={wishlist}
+                    setWishlist={setWishlist}
+                    ></WishlistCard>)
                 }
             </div>
         </div>

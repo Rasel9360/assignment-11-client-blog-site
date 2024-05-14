@@ -1,11 +1,22 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const WishlistCard = ({ wish }) => {
+const WishlistCard = ({ wish, wishlist, setWishlist }) => {
 
     const { _id, image, blogId, title, short_description, date, category } = wish;
 
     const handleDelete = (id) => {
         console.log(id);
+        axios.delete(`${import.meta.env.VITE_API_URL}/wishlist/${_id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    toast.success('successfully remove wishlist blog')
+                    const remaining = wishlist.filter(wish => wish._id !== _id);
+                    setWishlist(remaining);
+                }
+            })
     }
 
 
@@ -31,7 +42,7 @@ const WishlistCard = ({ wish }) => {
                         </button>
                     </Link>
                     <button
-                        onClick={()=> handleDelete(_id)}
+                        onClick={() => handleDelete(_id)}
                         className="relative p-0.5 btn-sm inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
                         <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
                         <span className="relative px-6 py-3 transition-all ease-out rounded-md group-hover:bg-opacity-0 duration-400">
